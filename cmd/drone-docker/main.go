@@ -7,6 +7,8 @@ import (
 	"github.com/Sirupsen/logrus"
 	"github.com/joho/godotenv"
 	"github.com/urfave/cli"
+
+	"github.com/budacom/drone-docker"
 )
 
 var build = "0" // build number set at compile-time

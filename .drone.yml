@@ -1,6 +1,6 @@
 workspace:
   base: /go
-  path: src/github.com/drone-plugins/drone-docker
+  path: src/github.com/budacom/drone-docker
 
 pipeline:
   build:
@@ -14,9 +14,9 @@ pipeline:
 
   publish:
     image: plugins/docker
-    repo: plugins/docker
+    repo: us.gcr.io/ops-support-191021/drone-docker
     tags: [ "latest", "17", "17.12" ]
-    secrets: [ docker_username, docker_password ]
+    secrets: [ gcr_json_key ]
     dockerfile: docker/Dockerfile
     when:
       branch: master
@@ -24,9 +24,9 @@ pipeline:
 
   publish_heroku:
     image: plugins/docker
-    repo: plugins/heroku
+    repo: us.gcr.io/ops-support-191021/drone-heroku
     tags: [ "latest", "17", "17.12" ]
-    secrets: [ docker_username, docker_password ]
+    secrets: [ gcr_json_key ]
     dockerfile: docker/heroku/Dockerfile
     when:
       branch: master
@@ -34,9 +34,9 @@ pipeline:
 
   publish_gcr:
     image: plugins/docker
-    repo: plugins/gcr
+    repo: us.gcr.io/ops-support-191021/drone-gcr
     tags: [ "latest", "17", "17.10" ]
-    secrets: [ docker_username, docker_password ]
+    secrets: [ gcr_json_key ]
     dockerfile: docker/gcr/Dockerfile
     when:
       branch: master
@@ -44,9 +44,9 @@ pipeline:
 
   publish_ecr:
     image: plugins/docker
-    repo: plugins/ecr
+    repo: us.gcr.io/ops-support-191021/drone-ecr
     tags: [ "latest", "17", "17.10" ]
-    secrets: [ docker_username, docker_password ]
+    secrets: [ gcr_json_key ]
     dockerfile: docker/ecr/Dockerfile
     when:
       branch: master
